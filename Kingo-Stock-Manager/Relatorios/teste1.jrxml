@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste1" language="groovy" pageWidth="595" pageHeight="900" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0263761e-f85f-433b-a62d-47a7eb48ee05">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="28" isBold="true"/>
+	<style name="Coluna" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detalhes" fontName="Arial" fontSize="12"/>
+	<style name="Row">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#99CCFF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="realPath" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[System.getProperty("user.dir")]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from tbl_estoque]]>
+	</queryString>
+	<field name="pk_est_id" class="java.lang.Object"/>
+	<field name="est_responsavel" class="java.lang.Object"/>
+	<field name="est_tipo_mov" class="java.lang.Object"/>
+	<field name="est_descricao" class="java.lang.Object"/>
+	<field name="est_quantidade" class="java.lang.Object"/>
+	<field name="est_valor" class="java.lang.Object"/>
+	<field name="fk_pro_id" class="java.lang.Object"/>
+	<field name="fk_usu_id" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<image scaleImage="RetainShape" hAlign="Left" vAlign="Top">
+				<reportElement x="1" y="0" width="555" height="70" uuid="8ea2d88e-ae25-46a8-95d4-5fca97ecea34"/>
+				<imageExpression><![CDATA[$P{realPath} + "//Relatorios//Kingo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="276" y="15" width="279" height="30" uuid="816ec9cc-5f95-4e04-91df-2bd9bcb1b799"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[KINGO - Stock Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="340" y="42" width="159" height="20" forecolor="#1582D8" uuid="fe8756ad-404b-4658-992d-e2cfebe3a5f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Relatório de Estoque]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="80" width="555" height="1" uuid="828ac9f2-2d74-42ff-aac6-922129ba9762"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="fc0e6efd-1899-4c43-859c-40127daaaa92"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Coluna" x="0" y="3" width="35" height="15" uuid="d91caf36-e9cc-4e09-8c1a-a79c71c4e58b"/>
+				<text><![CDATA[Cod.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="46" y="3" width="112" height="15" uuid="d6119e60-5171-40ea-91fb-0a556602f960"/>
+				<text><![CDATA[Responsável:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="169" y="3" width="107" height="15" uuid="579dd7e3-52f3-4240-97ff-a5d98230207d"/>
+				<text><![CDATA[Movimentação:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="469" y="3" width="86" height="15" uuid="2753d63e-dc91-4ea6-89f4-1fc5536209f2"/>
+				<text><![CDATA[Valor Un. (R$):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="409" y="3" width="43" height="15" uuid="9adad7f8-d631-4334-8141-cda13cff2160"/>
+				<text><![CDATA[Qtde.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Coluna" x="291" y="3" width="101" height="15" uuid="0d84bd34-a363-4844-ba2a-b90cdcc16ea8"/>
+				<text><![CDATA[Desc. Prod.:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="1" y="0" width="555" height="15" uuid="72af452f-19d0-4851-a49f-0e94486237cf"/>
+				<textField>
+					<reportElement x="0" y="0" width="34" height="15" uuid="0d8d2da8-1660-4ef9-9a32-f754e4a3f734"/>
+					<textFieldExpression><![CDATA[""+$F{pk_est_id}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="45" y="0" width="112" height="15" uuid="d6afed59-d168-4706-8a6b-fbc8e983c2b5"/>
+					<textFieldExpression><![CDATA[""+$F{est_responsavel}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="168" y="0" width="107" height="15" uuid="cc9e6112-46c3-44bf-a145-b339c167b369"/>
+					<textFieldExpression><![CDATA[""+$F{est_tipo_mov}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="290" y="0" width="101" height="15" uuid="2f5c4f82-10cc-487e-8e84-f37edb705c89"/>
+					<textFieldExpression><![CDATA[""+$F{est_descricao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="408" y="0" width="43" height="15" uuid="8c4da41b-d68d-496f-906d-33c603ae0502"/>
+					<textFieldExpression><![CDATA[""+$F{est_quantidade}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="468" y="0" width="66" height="15" uuid="5af9a288-0bb2-4ef2-b032-aa8cf091a330"/>
+					<textFieldExpression><![CDATA[""+$F{est_valor}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="39" width="556" height="15" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="0c7c8080-8d91-427f-9c4a-f82a3001a46e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="456" y="39" width="100" height="15" uuid="7af9a3fb-ac13-47ac-a197-762919b17c27"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy - HH:mm:ss">
+				<reportElement style="Detalhes" x="0" y="39" width="276" height="15" uuid="8dbe494a-a737-4432-91fe-46d266f79116"/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEEE dd MMMMM yyyy - HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
