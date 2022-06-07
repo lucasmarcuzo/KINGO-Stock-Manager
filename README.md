@@ -1,6 +1,5 @@
 ## KINGO-Stock-Manager - Sistema de Controle de Estoque.
 
-
 <p align="center">
 <a href="https://github.com/lucasmarcuzo/KINGO-Stock-Manager/">
 <img  width="513"  height="331"  src="Apresentacao/KINGO.gif">
@@ -20,5 +19,5 @@
 
 ![MIT License](https://img.shields.io/github/license/lucasmarcuzo/KINGO-Stock-Manager)
 
-<div align="right"> <h3> - Obrigado pela Visita (Thanks for visiting!) ✌🏻 </h3> </div> 
+<div align="right"> <h3> - Obrigado pela Visita ✌🏻 </h3> </div> 
 <p align="right"> <img src="https://visitor-badge.laobi.icu/badge?page_id=page.id=lucasmarcuzo/KINGO-Stock-Manager"> </h3> </p>
